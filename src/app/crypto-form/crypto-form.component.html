@@ -1,0 +1,39 @@
+<div>
+  <h5>{{todaysDate | date : 'short'}}</h5>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <label for="name" class="font-weight-bold">Name</label>
+    <!--  binding implementation -->
+    <input type="text" id="name" class="form-control" [(ngModel)]="cryptoSurvey.name">
+  </div>
+  <div class="col-md-6">
+    <label for="crypto" class="font-weight-bold">Favorite Crypto</label>
+    <select id="cryptos" class="form-control">
+      <option value=""></option>]
+      <option [value]="crypto.name" *ngFor="let crypto of top100Cryptos">{{crypto.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+
+    <label for="" class="font-weight-blod">(pipes)Do you like crypto pipes</label>
+    <select id="loveCrypto" class="form-control">
+      <option value="true">{{true| yesno}}</option>
+      <option value="false">{{false| yesno}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <label for="comments" class="font-weight-bold">Comments</label>
+    <textarea id="comments" cols="30" rows="10" class="form-control" [(ngModel)]="cryptoSurvey.comments"></textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <button [routerLink]="'submitted'" class="btn btn-outline-success btn-block" (click)='sendForm'> Send Form</button>
+  </div>
+</div>
